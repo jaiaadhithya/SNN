@@ -1,0 +1,53 @@
+flowchart LR
+
+  subgraph InputLayer["Input Spiking Layer"]
+    N1["Neuron 1"]
+    N2["Neuron 2"]
+    N3["Neuron 3"]
+    N4["Neuron 4"]
+    N5["Neuron 5"]
+    N6["Neuron 6"]
+    N7["Neuron 7"]
+    N8["Neuron 8"]
+    N9["Neuron 9"]
+  end
+
+  subgraph Crossbar["Memristor Synapse Layer (9x2)"]
+    C1["Synapses to Left"]
+    C2["Synapses to Right"]
+  end
+
+  subgraph OutputLayer["Output Motor Neurons"]
+    OL["Left Motor Neuron"]
+    OR["Right Motor Neuron"]
+  end
+
+  %% Connections
+  N1 --> C1 --> OL
+  N1 --> C2 --> OR
+
+  N2 --> C1
+  N2 --> C2
+  N3 --> C1
+  N3 --> C2
+  N4 --> C1
+  N4 --> C2
+  N5 --> C1
+  N5 --> C2
+  N6 --> C1
+  N6 --> C2
+  N7 --> C1
+  N7 --> C2
+  N8 --> C1
+  N8 --> C2
+  N9 --> C1
+  N9 --> C2
+
+  %% Styling
+  classDef input fill:#2563eb,stroke:#0f172a,color:#ffffff;
+  classDef crossbar fill:#9333ea,stroke:#0f172a,color:#ffffff;
+  classDef output fill:#dc2626,stroke:#0f172a,color:#ffffff;
+
+  class N1,N2,N3,N4,N5,N6,N7,N8,N9 input;
+  class C1,C2 crossbar;
+  class OL,OR output;
